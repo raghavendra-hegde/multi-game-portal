@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
+
+.site-modal {
+  position: fixed; /* Stay in place */
+  z-index: 10000; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto;
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+  font-family: "Gloria Hallelujah", cursive;
+}
+
+.modal-content {
+  background-color: peru;
+  border-radius: 5px;
+  box-shadow: 0 5px 100px rgba(0, 0, 0, 1);
+  width: 40%;
+  margin: 5rem 25rem;
+  padding: 20px;
+  /* height: 80%; */
+  line-height: 0.8rem;
+}
+
+.site-modal .close {
+  color: black;
+  float: right;
+  font-size: 48px;
+  font-weight: bold;
+  width: 30px;
+  padding: 0 2px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.site-modal .close:hover {
+  cursor: pointer;
+  color: red;
+}
+
+.form-control {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  position: relative;
+}
+
+.form-control label {
+  display: block;
+  color: darkolivegreen;
+  padding-bottom: 5px;
+}
+
+.form-control input {
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  display: block;
+  width: 80%;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.submit-button {
+  cursor: pointer;
+  background-color: rgb(67, 74, 185);
+  border: 2px solid rgb(67, 74, 185);
+  border-radius: 60px;
+  color: whitesmoke;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+h1 {
+  text-align: center;
+  color: greenyellow;
+}
+
+.error,
+.password-length {
+  color: red;
+}

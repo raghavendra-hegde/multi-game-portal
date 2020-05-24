@@ -1,0 +1,22 @@
+const words = ['You totally won and guessed correct',"asdassd","sadad","sdadsa","asaas","awawf"];
+const sentence = ['sigh',
+'tense',
+'airplane',
+'ball',
+'pies',
+'juice',
+'warlike',
+'bad',
+'north',
+'dependent',
+'steer',
+'silver',
+'highfalutin',
+'superficial',
+'quince',
+'eight',
+'feeble',
+'admit',
+'drag',
+'loving'];
+export  {words, sentence};

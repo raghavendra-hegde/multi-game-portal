@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
+.container-typeit {
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: dodgerblue;
+  display: block;
+  text-align: center;
+  padding: 7rem 0;
+  position: fixed;
+  font-family: 'Special Elite', cursive;
+  overflow: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 2.2rem;
+  padding: 0.2rem 0;
+  margin: 0.2rem;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.control-pane {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 1rem;
+  padding: 0.5rem;
+  height: 20%;
+}
+.control-pane div {
+  background-color: burlywood;
+  border-radius: 2rem;
+  box-shadow: 0 5px 50px rgb(235, 229, 229);
+  width: 100px;
+  height: 80%;
+  padding: 1rem;
+  text-align: center;
+  margin: 0 0.5rem;
+}
+
+.control-pane h1 {
+  color: black;
+}
+
+.diff-selector {
+  display: flex;
+  flex-direction: column;
+}
+.diff-selector select {
+  font-size: 1.2rem;
+}
+.game-controller {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.game-controller-start,
+.game-controller-restart {
+  cursor: pointer;
+  background-color: greenyellow;
+  border: 2px solid rgb(67, 74, 185);
+  border-radius: 60px;
+  color: black;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+.game-controller-restart {
+  background-color: rgb(240, 96, 60);
+}
+
+.main-console {
+  display: flex;
+  flex-direction: column;
+  height: 60%;
+  align-items: center;
+  /* justify-content: center; */
+
+  text-align: start;
+  padding: 0.5rem;
+}
+.main-console div {
+  margin: 0.5rem;
+}
+
+.current-score {
+  border-radius: 2rem;
+  box-shadow: 0 5px 50px rgb(235, 238, 60);
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+.typing-arena {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.typing-ground {
+  margin: 1rem;
+  padding: 2px 0;
+  width: 80%;
+  font-size: 1.5rem;
+}
