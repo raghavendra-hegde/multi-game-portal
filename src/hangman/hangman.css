@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 .container-hangman {
   top: 0;
   width: 100%;
@@ -9,79 +9,68 @@
   text-align: center;
   padding: 5.5rem 0;
   position: fixed;
-  font-family: 'Audiowide', cursive;
+  font-family: "Audiowide", cursive;
 }
 .title {
   text-align: center;
   font-size: 2.2rem;
   padding: 0.2rem 0;
   margin: 0.2rem;
-  font-family: 'Press Start 2P', cursive;
-}
-.container-hangman h3 {
-  margin: 0;
-  font-size: 2.2rem;
-  text-align: center;
+  font-family: "Press Start 2P", cursive;
 }
 
 .words {
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10px;
+}
+.guess {
+  border: 2px solid silver;
+  border-radius: 4rem;
+  margin: 0 2rem;
+  background-color: teal;
+  display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 1rem;
-  padding: 0.5rem;
-  height: auto;
-  text-align: justify;
 }
-.words div {
-  background-color: rgb(112, 65, 199);
-  box-shadow: 0 5px 50px rgb(235, 229, 229);
-  border-radius: 8px;
-  padding: 5px;
-  margin: 0.5rem;
+.guess div {
+  margin: 0 1rem;
+  padding: 0 1rem;
 }
-.word-guess {
-  box-shadow: 0 5px 50px rgb(235, 229, 229);
-  padding: 0.5rem;
-  background-color: goldenrod;
-  border-radius: 10px;
-  border: 2.5px silver solid;
+.guessed {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-}
-.word-guess button {
-  background-color: silver;
-  border-radius: 10px;
-  padding: 3px;
-  margin: 3px;
-}
-
-.word-guess input {
-  align-items: center;
+  border-left: 2px dashed floralwhite;
   text-align: center;
 }
 
-.hangOrSave {
+.input-section {
   display: flex;
-  justify-content: space-around;
   align-items: center;
+  justify-content: space-around;
+  background-color: slateblue;
+  border-radius: 10px;
+  margin: 10px;
+}
+.word-guess {
+  display: inline-flex;
+  border-right: 2px dashed floralwhite;
+  padding: 0 1rem;
+}
+
+.word-guess input {
+  text-align: center;
   margin: 0.5rem;
-  height: 50%;
-}
-.hang-image {
-  border: 2px black dotted;
+  width: 30%
 }
 
-.letterChoosen {
-  border-radius: 0;
-  font-size: 1.2rem;
-}
-.letterChoosen h5 {
-  border-top: 1px solid black;
+.word-guess button{
+  margin: 0 0.5rem;
 }
 
-.wrong-letters {
-  color: red;
-  font-weight: bolder;
+.res {
+  background-color: red;
 }

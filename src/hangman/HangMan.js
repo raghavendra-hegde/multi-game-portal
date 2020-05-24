@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {words} from "../utils/Words";
+import { words } from "../utils/Words";
 import DisplayWord from "./DisplayWord";
 import Guess from "./Guess";
 import Wrong from "./Wrong";
@@ -9,12 +9,32 @@ class HangMan extends Component {
   constructor() {
     super();
     this.state = {
-      wordToGuess: words[Math.floor(Math.random() * words.length)],
+      wordToGuess: "",
       guessedLetters: [],
-      guessesRemaining: 5,
+      guessesRemaining: 0,
+      clue1: "",
+      clue2: "",
+      clue3: "",
+      correctGuess: [],
+      gameStarted:false
     };
-    // this.updateGuessedLetters = this.updateGuessedLetters.bind(this)
   }
+
+  loadGame = () => {
+    if (this.state.wordToGuess === "") {
+      this.setState({
+        wordToGuess: words[Math.floor(Math.random() * words.length)],
+        guessedLetters: [],
+        guessesRemaining: 5,
+        clue1: "Subject",
+        clue2: " some info 1",
+        clue3: " Some info 2 ",
+        gameStarted:true
+      });
+    }
+
+    console.log(this.state.wordToGuess);
+  };
 
   updateGuessedLetters = (letter) => {
     console.log(this.state.guessedLetters);
@@ -37,12 +57,29 @@ class HangMan extends Component {
   }
 
   gameOver() {
-    if (this.state.guessesRemaining <= 0) {
-      alert("You've last");
+    if (this.state.guessesRemaining === 0) {
+      alert("You got the man killed");
+      this.setState({
+        guessedLetters: [],
+        wordToGuess: "",
+      });
     } else if (this.wordIsGuessed()) {
-      alert(`You totally won and guessed correct ${this.state.wordToGuess}`);
+      alert('You saved this man...!! Thank you, avenger');
+      this.resetGame();
     }
   }
+
+  resetGame = () => {
+    this.setState({
+      wordToGuess: "",
+      guessedLetters: [],
+      guessesRemaining: 5,
+      clue1: "",
+      clue2: "",
+      clue3: "",
+      gameStarted:false
+    });
+  };
 
   wordIsGuessed() {
     const guessState = this.state.wordToGuess.split("").map((letter) => {
@@ -59,6 +96,8 @@ class HangMan extends Component {
     this.updateGuessessRemaining(letter);
     this.gameOver();
   };
+
+ 
   render() {
     return (
       <div className="container-hangman">
@@ -66,32 +105,37 @@ class HangMan extends Component {
 
         <div className="words">
           <div className="guess">
-            <h5>Guess this word => </h5>
-            <h3>{this.state.wordToGuess}</h3>
-            <h2>clue</h2>
-            <p>jsavdhasbdhvadsdbjsakdbsabdasjksdbbdsabdjasdbskasbdjbasbsa</p>
-            <p>kjdalksdsfsdfybdsiufsadinsdjnsajkaksjdjn</p>
-          </div>
+            <div>
+              <h4>Connect the dots</h4>
+              <ul>
+                <li>{this.state.clue1}</li>
+                <li>{this.state.clue2}</li>
+                <li>{this.state.clue3}</li>
+              </ul>
+            </div>
 
-          <div className="letterChoosen">
             <DisplayWord
               word={this.state.wordToGuess}
               guessesdLetters={this.state.guessedLetters}
             />
+          </div>
+        </div>
+
+        <div className="input-section">
+          <Guess
+            updateGuessedLetters={this.updateHangmanState}
+            loadGame={this.loadGame}
+            resetGame={this.resetGame}
+          />
+
+          <div className="wrong-input">
             <h5>Wrong Guesses</h5>
             <Wrong
               word={this.state.wordToGuess}
               guessedLetters={this.state.guessedLetters}
             />
           </div>
-          <Guess updateGuessedLetters={this.updateHangmanState} />
         </div>
-
-        <div className="hangOrSave">
-          
-          
-        </div>
-        <div className='hangimage'>sadasdasdsdasdaaaaaaaaaaasadasdasdasdasd </div>
       </div>
     );
   }

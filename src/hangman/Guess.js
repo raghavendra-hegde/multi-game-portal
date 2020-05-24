@@ -7,15 +7,30 @@ class Guess extends Component {
     this.props.updateGuessedLetters(guessedLetter);
     this.refs.textInput.value = "";
   };
+
+  handleReset = (event) => {
+    event.preventDefault();
+    this.props.resetGame();
+  };
+
+  startGame = (event) => {
+    event.preventDefault();
+    this.props.loadGame();
+  };
+
   render() {
     return (
-      <div className='word-guess'>
-        
+      <div className="word-guess">
         <form onSubmit={this.handleSubmit}>
           <input type="text" ref="textInput" maxLength="1" />
-          <button>Submit</button>
+          <div>
+            <button>Submit</button>
+          </div>
         </form>
-        <button>Reset</button>
+        <button onClick={this.startGame}>Start</button>
+        <button className="res" onClick={this.handleReset}>
+          Reset
+        </button>
       </div>
     );
   }

@@ -33,3 +33,19 @@ a {
   font-family: "Pangolin", cursive;
   font-size: 1.6rem;
 }
+
+.register {
+  display: inline;
+}
+
+.profile {
+  display: block;
+  padding: 8px 25px;
+  text-align: center;
+}
+
+.profile img {
+  height: 65px;
+  width: 65px;
+  border-radius: 40%;
+}
