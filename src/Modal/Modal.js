@@ -9,9 +9,9 @@ class Modal extends Component {
     super();
     this.state = {};
   }
-  closeModal = ()=> {
-      this.props.openModal()
-  }
+  closeModal = () => {
+    this.props.openModal();
+  };
   render() {
     let modalDisplayStyle;
 
@@ -36,16 +36,19 @@ class Modal extends Component {
   }
 }
 
-function mapStateToProps(state){
-    return{
-        siteModal: state.siteModal
-    }
+function mapStateToProps(state) {
+  return {
+    siteModal: state.siteModal,
+  };
 }
 
-function mapDispatchToProps(dispatcher){
-    return bindActionCreators({
-        openModal: openModal
-    }, dispatcher);
+function mapDispatchToProps(dispatcher) {
+  return bindActionCreators(
+    {
+      openModal: openModal,
+    },
+    dispatcher
+  );
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

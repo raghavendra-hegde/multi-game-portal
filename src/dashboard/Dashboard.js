@@ -7,6 +7,9 @@ import {
   faSmileBeam,
   faSmile,
 } from "@fortawesome/free-solid-svg-icons";
+
+import typingImage from "../assets/images/TypingImage.png";
+import hangmanImage from "../assets/images/Hangman-5.svg.png";
 class DashBoard extends Component {
   render() {
     return (
@@ -25,7 +28,7 @@ class DashBoard extends Component {
               </button>
             </Link>
             <div>
-              <img src="TypingImage.png" alt="typing game" />
+              <img src={typingImage} alt="typing game" />
             </div>
           </div>
           <div className="container-game">
@@ -37,7 +40,7 @@ class DashBoard extends Component {
               </button>
             </Link>
             <div className="thumb">
-              <img src="../assets/images/Hangman-5.svg.png" alt="Hangman" />
+              <img src={hangmanImage} alt="Hangman" />
             </div>
           </div>
         </div>

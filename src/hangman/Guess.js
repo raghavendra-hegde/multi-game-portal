@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 class Guess extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     let guessedLetter = this.refs.textInput.value;
-    this.props.updateGuessedLetters(guessedLetter);
+    if(this.props.gameStarted){
+      this.props.updateGuessedLetters(guessedLetter.toUpperCase());
+    }
+    
     this.refs.textInput.value = "";
   };
 
@@ -24,7 +28,7 @@ class Guess extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type="text" ref="textInput" maxLength="1" />
           <div>
-            <button>Submit</button>
+            <button><FontAwesomeIcon icon={faLightbulb}/></button>
           </div>
         </form>
         <button onClick={this.startGame}>Start</button>

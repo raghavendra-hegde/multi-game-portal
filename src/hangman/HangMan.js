@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-import { words } from "../utils/Words";
+import { hangmanWords } from "../utils/Words";
 import DisplayWord from "./DisplayWord";
 import Guess from "./Guess";
 import Wrong from "./Wrong";
 
 import "./hangman.css";
+import GameStateImage from "./GameStateImage";
 class HangMan extends Component {
   constructor() {
     super();
@@ -12,32 +13,32 @@ class HangMan extends Component {
       wordToGuess: "",
       guessedLetters: [],
       guessesRemaining: 0,
-      clue1: "",
-      clue2: "",
-      clue3: "",
+      clue: "",
+      topic: "",
       correctGuess: [],
-      gameStarted:false
+      gameStarted: false,
+      imageId:0
     };
   }
 
   loadGame = () => {
     if (this.state.wordToGuess === "") {
+      console.log(hangmanWords.length);
+      const toBeGussedObject =
+        hangmanWords[Math.floor(Math.random() * hangmanWords.length)];
       this.setState({
-        wordToGuess: words[Math.floor(Math.random() * words.length)],
+        wordToGuess: toBeGussedObject.answer,
         guessedLetters: [],
-        guessesRemaining: 5,
-        clue1: "Subject",
-        clue2: " some info 1",
-        clue3: " Some info 2 ",
-        gameStarted:true
+        guessesRemaining: 6,
+        clue: toBeGussedObject.clue,
+        topic: toBeGussedObject.topic,
+        gameStarted: true,
+        imageId:0
       });
     }
-
-    console.log(this.state.wordToGuess);
   };
 
   updateGuessedLetters = (letter) => {
-    console.log(this.state.guessedLetters);
     if (this.state.guessedLetters.includes(letter)) {
       alert(`You have gussed the letter ${letter}`);
     } else {
@@ -48,23 +49,35 @@ class HangMan extends Component {
   };
 
   updateGuessessRemaining(letter) {
+    console.log(this.state.guessedLetters.includes(letter));
+    console.log(this.state.wordToGuess.split("").includes(letter));
     if (
       !this.state.guessedLetters.includes(letter) &&
       !this.state.wordToGuess.split("").includes(letter)
     ) {
-      this.setState({ guessesRemaining: this.state.guessesRemaining - 1 });
+      console.log("*****Remainging guess*******")
+      console.log(this.state.guessesRemaining);
+
+      console.log("*****image ID*******");
+      console.log(this.state.imageId)
+      this.setState({ 
+        guessesRemaining: this.state.guessesRemaining - 1 ,
+      imageId:(this.state.imageId + 1)});
+
     }
+
+    console.log(this.state.imageId)
   }
 
   gameOver() {
     if (this.state.guessesRemaining === 0) {
       alert("You got the man killed");
-      this.setState({
-        guessedLetters: [],
-        wordToGuess: "",
-      });
+      this.resetGame();
     } else if (this.wordIsGuessed()) {
-      alert('You saved this man...!! Thank you, avenger');
+      this.setState({
+        imageId:7
+      })
+      alert("You saved this man...!! Thank you, avenger");
       this.resetGame();
     }
   }
@@ -73,11 +86,11 @@ class HangMan extends Component {
     this.setState({
       wordToGuess: "",
       guessedLetters: [],
-      guessesRemaining: 5,
-      clue1: "",
-      clue2: "",
-      clue3: "",
-      gameStarted:false
+      guessesRemaining: 6,
+      clue: "",
+      topic: "",
+      gameStarted: false,
+      imageId:0
     });
   };
 
@@ -97,7 +110,6 @@ class HangMan extends Component {
     this.gameOver();
   };
 
- 
   render() {
     return (
       <div className="container-hangman">
@@ -108,9 +120,8 @@ class HangMan extends Component {
             <div>
               <h4>Connect the dots</h4>
               <ul>
-                <li>{this.state.clue1}</li>
-                <li>{this.state.clue2}</li>
-                <li>{this.state.clue3}</li>
+                <li>Topic : {this.state.topic}</li>
+                <li>{this.state.clue}</li>
               </ul>
             </div>
 
@@ -126,6 +137,7 @@ class HangMan extends Component {
             updateGuessedLetters={this.updateHangmanState}
             loadGame={this.loadGame}
             resetGame={this.resetGame}
+            gameStarted={this.state.gameStarted}
           />
 
           <div className="wrong-input">
@@ -135,6 +147,10 @@ class HangMan extends Component {
               guessedLetters={this.state.guessedLetters}
             />
           </div>
+        </div>
+
+        <div className="image">
+          <GameStateImage imgId={this.state.imageId} />
         </div>
       </div>
     );

@@ -37,13 +37,13 @@ class TypeIT extends Component {
       let newTimmerValue;
       switch (this.state.diffLevel) {
         case "Rookie":
-          newTimmerValue = 45;
+          newTimmerValue = 15;
           break;
         case "Hardened":
-          newTimmerValue = 30;
+          newTimmerValue = 10;
           break;
         case "Veteran":
-          newTimmerValue = 45;
+          newTimmerValue = 5;
           break;
         default:
           newTimmerValue = 0;
@@ -115,15 +115,15 @@ class TypeIT extends Component {
     switch (this.state.diffLevel) {
       case "Rookie":
         newCurrentScore = currentScore + 2;
-        newTimmerValue = 45;
+        newTimmerValue = 15;
         break;
       case "Hardened":
         newCurrentScore = currentScore + 3;
-        newTimmerValue = 30;
+        newTimmerValue = 10;
         break;
       case "Veteran":
         newCurrentScore = currentScore + 5;
-        newTimmerValue = 45;
+        newTimmerValue = 5;
         break;
       default:
         newCurrentScore = 0;
