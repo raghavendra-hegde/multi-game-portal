@@ -124,7 +124,7 @@ const hangmanWords = [
   },
   {
     topic: "European countries",
-    clue: "",
+    clue: "O is in 4",
     answer: "ANDORRA",
   },
   {
@@ -139,12 +139,12 @@ const hangmanWords = [
   },
   {
     topic: "Drinks",
-    clue: "",
-    answer: "COFFEE",
+    clue: "Expensive bean drink, extracted from POP of palm civets",
+    answer: "KOPILUWAK",
   },
   {
     topic: "Clothes",
-    clue: "",
+    clue: "True love is like Pair of ****: you gotto have 2 and they gotto match",
     answer: "SOCKS",
   },
   {
@@ -191,6 +191,61 @@ const hangmanWords = [
     topic: "Movies",
     clue: "From 1990's, and my name is khan",
     answer: "BAAZIGAR",
+  },
+  {
+    topic: "Riddles",
+    clue: "This is one of the world’s most recognizable structures. ",
+    answer: "EIFFELTOWER",
+  },
+  {
+    topic: "Riddles",
+    clue: "Some people claim to have none of this when it comes to dancing.",
+    answer: "RHYTHM",
+  },
+  {
+    topic: "Riddles",
+    clue: "A final resting place for many.",
+    answer: "CEMETERY",
+  },
+  {
+    topic: "Riddles",
+    clue: "This creature is the largest reptile in",
+    answer: "ALLIGATOR",
+  },
+  {
+    topic: "Riddles",
+    clue: "Its only average quality",
+    answer: "MEDIOCRE",
+  },
+  {
+    topic: "Riddles",
+    clue: "To accuse someone of wrongdoing",
+    answer: "INDICT",
+  },
+  {
+    topic: "Riddles",
+    clue: "This summer squash is one of Hangman’s favorite foods",
+    answer: "ZUCCHINI",
+  },
+  {
+    topic: "Riddles",
+    clue: "Extremely small, or tiny!",
+    answer: "MINUSCULE",
+  },
+  {
+    topic: "Riddles",
+    clue: "Frogs, toads, and salamanders",
+    answer: "AMPHIBIANS",
+  },
+  {
+    topic: "Riddles",
+    clue: "This is a soft, gentle breeze",
+    answer: "ZEPHYR",
+  },
+  {
+    topic: "Riddles",
+    clue: "This word is a shrub with tubular flowers",
+    answer: "FUCHSIA",
   },
 ];
 export { hangmanWords, sentence };
