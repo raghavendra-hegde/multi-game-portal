@@ -71,7 +71,7 @@ class HangMan extends Component {
 
   gameOver() {
     if (this.state.guessesRemaining === 0) {
-      alert("You got the man killed");
+      alert(`You got the man killed, Right Answer was ${this.state.wordToGuess}`);
       this.resetGame();
     } else if (this.wordIsGuessed()) {
       this.setState({
